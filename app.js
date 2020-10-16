@@ -2,10 +2,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     let width = 10
+    let bombAmount = 20
     let squares = []
 
     //create board
     function createBoard() {
+        //shuffle array of bombs throughout grid
+        const bombArray = Array(bombAmount).fill('bomb')
+        const emptyArray = Array(width*width - bombAmount).fill('valid')
+        const gameArray = emptyArray.concat(bombArray)
+        const shuffledArray = gameArray.sort(() => Math.random() -0.5)
+        console.log(shuffledArray)
 
 
         for(let i =0; i < width*width; i++) {
